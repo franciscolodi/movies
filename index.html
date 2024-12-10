@@ -44,6 +44,34 @@
             margin-top: 5px;
             color: #555;
         }
+        .comentarios {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .comentarios h3 {
+            margin-top: 0;
+        }
+        .comentarios textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .comentarios button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .comentarios button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -54,62 +82,48 @@
             <div class="titulo">Botón de Nácar (2015)</div>
             <div class="director">Director: Patricio Guzmán</div>
             <div class="descripcion">Este documental poético reflexiona sobre la relación entre el agua, la memoria y la violencia histórica en Chile. Conecta el genocidio de los pueblos indígenas de la Patagonia con las desapariciones durante la dictadura de Pinochet.</div>
+            
+            <!-- Sección para comentarios -->
+            <div class="comentarios">
+                <h3>Deja tu comentario:</h3>
+                <textarea id="comentario1" placeholder="Escribe tu comentario..."></textarea>
+                <button onclick="guardarComentario('comentario1')">Comentar</button>
+                <div id="comentarios-lista1"></div>
+            </div>
         </div>
 
         <div class="documental">
             <div class="titulo">The Act of Killing (2012)</div>
             <div class="director">Director: Joshua Oppenheimer</div>
             <div class="descripcion">Impactante documental donde exmiembros de escuadrones de la muerte en Indonesia recrean las atrocidades que cometieron en los años 60. Expone el arrepentimiento y la normalización de la violencia en la sociedad.</div>
+            
+            <!-- Sección para comentarios -->
+            <div class="comentarios">
+                <h3>Deja tu comentario:</h3>
+                <textarea id="comentario2" placeholder="Escribe tu comentario..."></textarea>
+                <button onclick="guardarComentario('comentario2')">Comentar</button>
+                <div id="comentarios-lista2"></div>
+            </div>
         </div>
 
-        <div class="documental">
-            <div class="titulo">Fake Famous (2021)</div>
-            <div class="director">Director: Nick Bilton</div>
-            <div class="descripcion">Un experimento social que convierte a tres desconocidos en "influencers" usando tácticas engañosas. Revela el impacto de las redes sociales en la percepción de la fama.</div>
-        </div>
+        <!-- Puedes seguir agregando más documentales con la misma estructura -->
         
-        <div class="documental">
-            <div class="titulo">Crumb (1994)</div>
-            <div class="director">Director: Terry Zwigoff</div>
-            <div class="descripcion">Explora la vida y el arte del dibujante Robert Crumb, sus controversias y las complejidades familiares que moldearon su trabajo.</div>
-        </div>
-
-        <div class="documental">
-            <div class="titulo">Walker (2012)</div>
-            <div class="director">Director: Tsai Ming-liang</div>
-            <div class="descripcion">Cortometraje contemplativo que muestra a un monje budista caminando lentamente por Hong Kong, contrastando con el frenesí urbano.</div>
-        </div>
-        
-        <div class="documental">
-            <div class="titulo">Fyre Festival (2019)</div>
-            <div class="director">Director: Chris Smith</div>
-            <div class="descripcion">Relata el fallido festival Fyre, un fraude masivo promovido como una experiencia de lujo. Una crítica a la influencia y las falsas promesas.</div>
-        </div>
-
-        <div class="documental">
-            <div class="titulo">Let's Get Lost (1988)</div>
-            <div class="director">Director: Bruce Weber</div>
-            <div class="descripcion">Retrato del trompetista de jazz Chet Baker en sus últimos años, explorando su talento, carisma y autodestrucción.</div>
-        </div>
-
-        <div class="documental">
-            <div class="titulo">Moonage Daydream (2022)</div>
-            <div class="director">Director: Brett Morgen</div>
-            <div class="descripcion">Innovador documental sobre David Bowie, con material inédito y un estilo visual experimental que refleja su creatividad.</div>
-        </div>
-
-        <div class="documental">
-            <div class="titulo">13th (2016)</div>
-            <div class="director">Directora: Ava DuVernay</div>
-            <div class="descripcion">Analiza cómo la Enmienda 13 permitió la evolución del encarcelamiento masivo como forma de opresión racial.</div>
-        </div>
-
-        <div class="documental">
-            <div class="titulo">Free Solo (2018)</div>
-            <div class="director">Directores: Elizabeth Chai Vasarhelyi y Jimmy Chin</div>
-            <div class="descripcion">Sigue al escalador Alex Honnold en su intento de escalar El Capitán sin cuerdas, explorando los límites humanos.</div>
-        </div>
-
     </div>
+
+    <script>
+        function guardarComentario(id) {
+            var comentario = document.getElementById(id).value;
+            if (comentario.trim() !== "") {
+                // Obtener la lista de comentarios y agregar el nuevo comentario
+                var comentariosLista = document.getElementById("comentarios-lista" + id.charAt(id.length - 1));
+                var nuevoComentario = document.createElement("p");
+                nuevoComentario.textContent = comentario;
+                comentariosLista.appendChild(nuevoComentario);
+                
+                // Limpiar el campo de texto
+                document.getElementById(id).value = "";
+            }
+        }
+    </script>
 </body>
 </html>
