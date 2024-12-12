@@ -75,7 +75,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Películas Documentales</h1>
+        <h1>Documentales Karen Paz y Francisco</h1>
         {% for movie in movies %}
             <div class="movie">
                 <h2>{{ movie[1] }} ({{ movie[2] }})</h2>
@@ -84,7 +84,7 @@
 
                 <!-- Comentarios -->
                 <div class="comments-section">
-                    <h3>Comentarios:</h3>
+                    
                     <div class="comments">
                         {% for comment in comments %}
                             {% if comment[1] == movie[0] %}
@@ -98,8 +98,8 @@
                     <!-- Formulario para dejar un comentario -->
                     <form class="comment-form" method="POST" action="/">
                         <input type="hidden" name="movie_id" value="{{ movie[0] }}">
-                        <textarea name="comment" rows="4" placeholder="Deja tu comentario aquí..."></textarea>
-                        <button type="submit">Enviar Comentario</button>
+                        <textarea name="comment" rows="4" placeholder="ideas y reflexiones..."></textarea>
+                        <button type="submit">Guardar</button>
                     </form>
                 </div>
             </div>
