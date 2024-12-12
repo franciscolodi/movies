@@ -3,24 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comentarios</title>
+    <title>Lista de Documentales</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
-        textarea { width: 100%; height: 100px; }
-        button { padding: 10px; }
-        .comment { border-bottom: 1px solid #ccc; padding: 10px 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .movie {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .movie h3 {
+            color: #333;
+        }
+        .movie p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .form-group {
+            margin-top: 10px;
+        }
+        .form-group label {
+            font-weight: bold;
+            display: block;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
-    <h1>Deja un comentario</h1>
-    <form method="POST">
-        <textarea name="comment" placeholder="Escribe tu comentario aquí..." required></textarea><br>
-        <button type="submit">Enviar comentario</button>
-    </form>
 
-    <h2>Comentarios:</h2>
-    {% for comment in comments %}
-        <div class="comment">{{ comment[0] }}</div>
-    {% endfor %}
+    <div class="container">
+        <h1>Lista de Documentales</h1>
+
+        <!-- Movie Entries -->
+        <div class="movie">
+            <h3>1. Botón de Nácar (2015)</h3>
+            <p>Director: Patricio Guzmán</p>
+            <p>Este documental poético reflexiona sobre la relación entre el agua, la memoria y la violencia histórica en Chile...</p>
+            <div class="form-group">
+                <label for="fecha1">Fecha:</label>
+                <input type="date" id="fecha1" name="fecha1">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ1">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ1" name="comentariosKPAZ1" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI1">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI1" name="comentariosFLODI1" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>2. The Act of Killing (2012)</h3>
+            <p>Director: Joshua Oppenheimer</p>
+            <p>Impactante documental en el que exmiembros de escuadrones de la muerte en Indonesia recrean, a través de dramatizaciones surrealistas...</p>
+            <div class="form-group">
+                <label for="fecha2">Fecha:</label>
+                <input type="date" id="fecha2" name="fecha2">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ2">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ2" name="comentariosKPAZ2" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI2">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI2" name="comentariosFLODI2" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>3. Fake Famous (2021)</h3>
+            <p>Director: Nick Bilton</p>
+            <p>Un experimento social que selecciona a tres desconocidos y los convierte en "influencers" mediante tácticas engañosas...</p>
+            <div class="form-group">
+                <label for="fecha3">Fecha:</label>
+                <input type="date" id="fecha3" name="fecha3">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ3">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ3" name="comentariosKPAZ3" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI3">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI3" name="comentariosFLODI3" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>4. Crumb (1994)</h3>
+            <p>Director: Terry Zwigoff</p>
+            <p>Una mirada profunda a la vida y el trabajo del icónico dibujante underground Robert Crumb...</p>
+            <div class="form-group">
+                <label for="fecha4">Fecha:</label>
+                <input type="date" id="fecha4" name="fecha4">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ4">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ4" name="comentariosKPAZ4" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI4">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI4" name="comentariosFLODI4" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>5. Walker (2012)</h3>
+            <p>Director: Tsai Ming-liang</p>
+            <p>Cortometraje contemplativo que muestra a un monje budista caminando muy lentamente por las bulliciosas calles de Hong Kong...</p>
+            <div class="form-group">
+                <label for="fecha5">Fecha:</label>
+                <input type="date" id="fecha5" name="fecha5">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ5">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ5" name="comentariosKPAZ5" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI5">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI5" name="comentariosFLODI5" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>6. Fyre Festival (2019)</h3>
+            <p>Director: Chris Smith</p>
+            <p>La historia detrás del fallido Fyre Festival, un evento promocionado como una experiencia de lujo en una isla paradisíaca...</p>
+            <div class="form-group">
+                <label for="fecha6">Fecha:</label>
+                <input type="date" id="fecha6" name="fecha6">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ6">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ6" name="comentariosKPAZ6" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI6">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI6" name="comentariosFLODI6" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>7. Let's Get Lost (1988)</h3>
+            <p>Director: Bruce Weber</p>
+            <p>Un retrato íntimo del trompetista de jazz Chet Baker en los últimos años de su vida...</p>
+            <div class="form-group">
+                <label for="fecha7">Fecha:</label>
+                <input type="date" id="fecha7" name="fecha7">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ7">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ7" name="comentariosKPAZ7" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI7">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI7" name="comentariosFLODI7" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>8. Moonage Daydream (2022)</h3>
+            <p>Director: Brett Morgen</p>
+            <p>Un documental innovador sobre David Bowie, con material inédito y un estilo visual y sonoro experimental...</p>
+            <div class="form-group">
+                <label for="fecha8">Fecha:</label>
+                <input type="date" id="fecha8" name="fecha8">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ8">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ8" name="comentariosKPAZ8" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI8">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI8" name="comentariosFLODI8" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>9. Flower of Taipei: Taiwan New Cinema (2014)</h3>
+            <p>Director: Chinlin Hsieh</p>
+            <p>Examina el surgimiento del movimiento del Nuevo Cine Taiwanés en los años 80...</p>
+            <div class="form-group">
+                <label for="fecha9">Fecha:</label>
+                <input type="date" id="fecha9" name="fecha9">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ9">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ9" name="comentariosKPAZ9" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI9">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI9" name="comentariosFLODI9" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>10. Dahomey (2023)</h3>
+            <p>Directores: Matthieu Bareyre y Laurence Lemoine</p>
+            <p>Reflexiona sobre la restitución de artefactos saqueados durante el colonialismo...</p>
+            <div class="form-group">
+                <label for="fecha10">Fecha:</label>
+                <input type="date" id="fecha10" name="fecha10">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ10">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ10" name="comentariosKPAZ10" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI10">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI10" name="comentariosFLODI10" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>11. Faces Places (Visages Villages, 2017)</h3>
+            <p>Directores: Agnès Varda y JR</p>
+            <p>Una conmovedora y creativa colaboración entre la cineasta Agnès Varda y el fotógrafo JR...</p>
+            <div class="form-group">
+                <label for="fecha11">Fecha:</label>
+                <input type="date" id="fecha11" name="fecha11">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ11">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ11" name="comentariosKPAZ11" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI11">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI11" name="comentariosFLODI11" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>12. Koyaanisqatsi (1982)</h3>
+            <p>Director: Godfrey Reggio</p>
+            <p>Un documental experimental sin diálogos que muestra un contraste visual entre la naturaleza y el ritmo acelerado de la vida moderna...</p>
+            <div class="form-group">
+                <label for="fecha12">Fecha:</label>
+                <input type="date" id="fecha12" name="fecha12">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ12">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ12" name="comentariosKPAZ12" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI12">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI12" name="comentariosFLODI12" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>13. 13th (2016)</h3>
+            <p>Directora: Ava DuVernay</p>
+            <p>Un potente análisis de cómo la Enmienda 13 de la Constitución de EE. UU. permitió la evolución del encarcelamiento masivo...</p>
+            <div class="form-group">
+                <label for="fecha13">Fecha:</label>
+                <input type="date" id="fecha13" name="fecha13">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ13">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ13" name="comentariosKPAZ13" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI13">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI13" name="comentariosFLODI13" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>14. Searching for Sugar Man (2012)</h3>
+            <p>Director: Malik Bendjelloul</p>
+            <p>La increíble historia del músico Sixto Rodríguez, quien, sin saberlo, se convirtió en una leyenda en Sudáfrica...</p>
+            <div class="form-group">
+                <label for="fecha14">Fecha:</label>
+                <input type="date" id="fecha14" name="fecha14">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ14">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ14" name="comentariosKPAZ14" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI14">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI14" name="comentariosFLODI14" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>15. Time (2020)</h3>
+            <p>Directora: Garrett Bradley</p>
+            <p>Un retrato íntimo y conmovedor sobre el sistema de justicia estadounidense a través de la lucha de una madre para liberar a su esposo...</p>
+            <div class="form-group">
+                <label for="fecha15">Fecha:</label>
+                <input type="date" id="fecha15" name="fecha15">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ15">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ15" name="comentariosKPAZ15" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI15">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI15" name="comentariosFLODI15" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>16. The Look of Silence (2014)</h3>
+            <p>Director: Joshua Oppenheimer</p>
+            <p>El hermano de una víctima del genocidio indonesio se enfrenta cara a cara con los responsables...</p>
+            <div class="form-group">
+                <label for="fecha16">Fecha:</label>
+                <input type="date" id="fecha16" name="fecha16">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ16">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ16" name="comentariosKPAZ16" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI16">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI16" name="comentariosFLODI16" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>17. Won’t You Be My Neighbor? (2018)</h3>
+            <p>Director: Morgan Neville</p>
+            <p>Una emotiva mirada a la vida y legado del presentador de televisión Fred Rogers...</p>
+            <div class="form-group">
+                <label for="fecha17">Fecha:</label>
+                <input type="date" id="fecha17" name="fecha17">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ17">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ17" name="comentariosKPAZ17" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI17">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI17" name="comentariosFLODI17" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>18. Jiro Dreams of Sushi (2011)</h3>
+            <p>Director: David Gelb</p>
+            <p>El retrato de Jiro Ono, un chef japonés maestro del sushi, en su pequeño restaurante de Tokio...</p>
+            <div class="form-group">
+                <label for="fecha18">Fecha:</label>
+                <input type="date" id="fecha18" name="fecha18">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ18">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ18" name="comentariosKPAZ18" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI18">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI18" name="comentariosFLODI18" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>19. Man on Wire (2008)</h3>
+            <p>Director: James Marsh</p>
+            <p>Un relato de la osada caminata en cuerda floja de Philippe Petit entre las Torres Gemelas en 1974...</p>
+            <div class="form-group">
+                <label for="fecha19">Fecha:</label>
+                <input type="date" id="fecha19" name="fecha19">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ19">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ19" name="comentariosKPAZ19" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI19">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI19" name="comentariosFLODI19" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>20. 20 Feet from Stardom (2013)</h3>
+            <p>Director: Morgan Neville</p>
+            <p>El relato de las coristas y su contribución crucial a la música popular...</p>
+            <div class="form-group">
+                <label for="fecha20">Fecha:</label>
+                <input type="date" id="fecha20" name="fecha20">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ20">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ20" name="comentariosKPAZ20" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI20">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI20" name="comentariosFLODI20" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>21. Won’t You Be My Neighbor? (2018)</h3>
+            <p>Director: Morgan Neville</p>
+            <p>Una emotiva mirada a la vida y legado del presentador de televisión Fred Rogers...</p>
+            <div class="form-group">
+                <label for="fecha21">Fecha:</label>
+                <input type="date" id="fecha21" name="fecha21">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ21">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ21" name="comentariosKPAZ21" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI21">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI21" name="comentariosFLODI21" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>22. The Fog of War (2003)</h3>
+            <p>Director: Errol Morris</p>
+            <p>El análisis de Robert S. McNamara, el exsecretario de Defensa de los EE. UU., sobre los dilemas éticos y las decisiones militares...</p>
+            <div class="form-group">
+                <label for="fecha22">Fecha:</label>
+                <input type="date" id="fecha22" name="fecha22">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ22">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ22" name="comentariosKPAZ22" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI22">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI22" name="comentariosFLODI22" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="movie">
+            <h3>23. The Social Dilemma (2020)</h3>
+            <p>Director: Jeff Orlowski</p>
+            <p>Un documental que explora los peligros de las redes sociales y el impacto en la sociedad moderna...</p>
+            <div class="form-group">
+                <label for="fecha23">Fecha:</label>
+                <input type="date" id="fecha23" name="fecha23">
+            </div>
+            <div class="form-group">
+                <label for="comentariosKPAZ23">Comentarios KPAZ:</label>
+                <textarea id="comentariosKPAZ23" name="comentariosKPAZ23" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comentariosFLODI23">Comentarios FLODI:</label>
+                <textarea id="comentariosFLODI23" name="comentariosFLODI23" rows="4"></textarea>
+            </div>
+        </div>
+
+        <button class="submit-btn" type="submit">Guardar</button>
+    </div>
+
 </body>
 </html>
