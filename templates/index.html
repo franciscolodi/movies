@@ -10,6 +10,8 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
         .container {
             width: 80%;
@@ -22,6 +24,10 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .movie:hover {
+            transform: translateY(-5px);
         }
         .movie h2 {
             margin: 0;
@@ -31,9 +37,6 @@
         .movie p {
             font-size: 16px;
             color: #555;
-        }
-        .movie-info {
-            margin: 10px 0;
         }
         .comments-section {
             margin-top: 20px;
@@ -58,6 +61,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
         .comment-form button:hover {
             background-color: #4cae4c;
@@ -71,20 +75,92 @@
             margin-bottom: 10px;
             border-radius: 4px;
         }
+        .rating {
+            margin-top: 10px;
+        }
+        .search-bar, .filter-bar {
+            margin-bottom: 20px;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode .movie {
+            background-color: #444;
+            color: #fff;
+        }
+        .dark-mode .movie h2 {
+            color: #fff;
+        }
+        .dark-mode .movie p {
+            color: #ddd;
+        }
+        .dark-mode .comment {
+            background-color: #555;
+            color: #fff;
+        }
+        .toggle-dark-mode {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .toggle-dark-mode:hover {
+            background-color: #0056b3;
+        }
     </style>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+        
+        function searchMovies() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let movies = document.querySelectorAll('.movie');
+            
+            movies.forEach(movie => {
+                let title = movie.querySelector('h2').innerText.toLowerCase();
+                movie.style.display = title.includes(input) ? '' : 'none';
+            });
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Documentales Karen Paz y Francisco</h1>
+        
+        <!-- Botón para cambiar a modo oscuro -->
+        <button class="toggle-dark-mode" onclick="toggleDarkMode()">Cambiar Modo Oscuro</button>
+        
+        <!-- Barra de búsqueda -->
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Buscar documentales..." onkeyup="searchMovies()">
+        </div>
+
+        <!-- Ejemplo de una película -->
         {% for movie in movies %}
             <div class="movie">
                 <h2>{{ movie[1] }} ({{ movie[2] }})</h2>
                 <p><strong>Director:</strong> {{ movie[3] }}</p>
                 <p>{{ movie[4] }}</p>
 
+                <!-- Sección de calificaciones -->
+                <div class="rating">
+                    <label for="rating-{{ movie[0] }}">Puntúa este documental:</label>
+                    <select name="rating" id="rating-{{ movie[0] }}">
+                        <option value="1">1 ⭐</option>
+                        <option value="2">2 ⭐⭐</option>
+                        <option value="3">3 ⭐⭐⭐</option>
+                        <option value="4">4 ⭐⭐⭐⭐</option>
+                        <option value="5">5 ⭐⭐⭐⭐⭐</option>
+                    </select>
+                </div>
+
                 <!-- Comentarios -->
                 <div class="comments-section">
-                    
                     <div class="comments">
                         {% for comment in comments %}
                             {% if comment[1] == movie[0] %}
@@ -98,7 +174,7 @@
                     <!-- Formulario para dejar un comentario -->
                     <form class="comment-form" method="POST" action="/">
                         <input type="hidden" name="movie_id" value="{{ movie[0] }}">
-                        <textarea name="comment" rows="4" placeholder="ideas y reflexiones..."></textarea>
+                        <textarea name="comment" rows="4" placeholder="Ideas y reflexiones..."></textarea>
                         <button type="submit">Guardar</button>
                     </form>
                 </div>
