@@ -25,6 +25,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
         .movie:hover {
             transform: translateY(-5px);
@@ -40,6 +41,7 @@
         }
         .comments-section {
             margin-top: 20px;
+            display: none; /* Inicialmente oculto */
         }
         .comment-form {
             margin-top: 15px;
@@ -126,6 +128,33 @@
                 movie.style.display = title.includes(input) ? '' : 'none';
             });
         }
+        
+        function toggleDetails(event) {
+            let target = event.currentTarget;
+            if (!target.classList.contains('movie')) {
+                target = target.closest('.movie');
+            }
+            let commentsSection = target.querySelector('.comments-section');
+            if (commentsSection) {
+                commentsSection.style.display = commentsSection.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const commentedMovieId = params.get("commented_movie");
+
+            if (commentedMovieId) {
+                const movieElement = document.getElementById(`movie-${commentedMovieId}`);
+                if (movieElement) {
+                    const commentsSection = movieElement.querySelector('.comments-section');
+                    if (commentsSection) {
+                        commentsSection.style.display = 'block';  // Muestra la sección de comentarios
+                        movieElement.scrollIntoView({ behavior: 'smooth' }); // Desplázate al elemento
+                    }
+                }
+            }
+        });
     </script>
 </head>
 <body>
@@ -142,10 +171,12 @@
 
         <!-- Ejemplo de una película -->
         {% for movie in movies %}
-            <div class="movie">
-                <h2>{{ movie[1] }} ({{ movie[2] }})</h2>
-                <p><strong>Director:</strong> {{ movie[3] }}</p>
-                <p>{{ movie[4] }}</p>
+            <div class="movie" id="movie-{{ movie[0] }}">
+                <div onclick="toggleDetails(event)">
+                    <h2>{{ movie[1] }} ({{ movie[2] }})</h2>
+                    <p><strong>Director:</strong> {{ movie[3] }}</p>
+                    <p>{{ movie[4] }}</p>
+                </div>
 
                 <!-- Sección de calificaciones -->
                 <div class="rating">
@@ -172,7 +203,7 @@
                     </div>
 
                     <!-- Formulario para dejar un comentario -->
-                    <form class="comment-form" method="POST" action="/">
+                    <form class="comment-form" method="POST" action="/?commented_movie={{ movie[0] }}#movie-{{ movie[0] }}">
                         <input type="hidden" name="movie_id" value="{{ movie[0] }}">
                         <textarea name="comment" rows="4" placeholder="Ideas y reflexiones..."></textarea>
                         <button type="submit">Guardar</button>
